@@ -1,0 +1,33 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Write C++ code here
+    cout << "Enter the number"<< endl;
+    
+    int n;
+    cin >> n;
+    
+    int rev;
+    int originaln = n;
+    
+    while(n != 0){
+        int i = n%10;
+        
+        rev = rev*10 + i;
+        
+        n /= 10;
+        
+    }
+    
+    if(originaln == rev){
+        cout << originaln <<" is a palindrome number"<<endl;
+    }
+    
+    else{
+        cout<< originaln <<" is not a plaindrom number"<<endl;
+    }
+
+    return 0;
+}
