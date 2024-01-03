@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+  int a = 81;
+  int b = 729;
+
+
+  int c = min(a,b);
+
+
+  while(c > 0){
+
+    if(a%c == 0 && b%c == 0){
+      break;
+    }
+
+    c--;
+    
+  }
+
+  cout << c;
+   
+}
