@@ -1,0 +1,15 @@
+#include <iostream>
+
+
+
+bool powerOfTwo(int n) {
+
+  return ((n & n-1) == 0);
+
+  
+}
+  
+
+int main() {
+  std::cout << powerOfTwo(2);
+}
