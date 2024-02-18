@@ -1,0 +1,88 @@
+//{ Driver Code Starts
+#include<bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+
+class Solution{
+    public:
+    // arr: input array
+    // num: length of array
+    // This function returns true or false
+    //Function to check if array is sorted and rotated.
+    bool checkRotatedAndSorted(int arr[], int num){
+        
+        // Your code here
+        int minIndex = 0;
+        int maxIndex = 0;
+
+        // Find the index of the minimum element in the array
+        for (int i = 1; i < num; ++i) {
+            if (arr[i] < arr[minIndex]) {
+                minIndex = i;
+            }
+        }
+
+        // Find the index of the maximum element in the array
+        for (int i = 1; i < num; ++i) {
+            if (arr[i] > arr[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+
+        // Check if the array is in non-decreasing order
+        if ((minIndex == 0 && maxIndex == num - 1) || (minIndex == num - 1 && maxIndex == 0)) {
+            return false; // Array is not rotated
+        }
+
+        // Check if the remaining elements maintain the order
+        int next = (maxIndex + 1) % num;
+        int prev = (minIndex - 1 + num) % num;
+
+        if (arr[minIndex] < arr[next] || arr[maxIndex] > arr[prev]) {
+            return false; // Order is not maintained
+        }
+
+        return true;
+        
+    }
+};
+
+//{ Driver Code Starts.
+
+int main()
+ {
+	int T;
+	//testcases
+	cin>> T;
+	
+	while (T--){
+	    int num;
+	    //size of array
+        cin>>num;
+        int arr[num];
+        
+        //inserting elements
+        for(int i = 0; i<num; ++i)
+            cin>>arr[i];
+        
+        bool flag = false;
+        Solution ob;
+        
+        //function call
+        flag = ob.checkRotatedAndSorted(arr, num);
+        
+        //printing "No" if not sorted and
+        //rotated else "Yes"
+        if(!flag){
+            cout << "No"<<endl;
+        }
+        else
+        cout << "Yes"<<endl;
+    
+	}
+	
+	return 0;
+}
+// } Driver Code Ends
